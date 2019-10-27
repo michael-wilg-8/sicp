@@ -133,14 +133,14 @@
 
                                         ; Excercise 1.8
 
-(define (good-enough? guess p-guess)
+(define (good-enough? p-guess guess)
   (< (abs (/ (- guess p-guess) guess)) 0.00000000000001))
 
 (define (improve guess x)
   (/ (+ (/ x (square guess)) (* 2 guess)) 3))
 
 (define (sqrt-iter guess x)
-  (if (good-enough? guess (improve guess x))
+  (if (good-enough? (improve guess x) guess)
       guess
       (sqrt-iter (improve guess x) x)))
 
@@ -152,3 +152,18 @@
 (improve 2 3)
 (good-enough? -1.0001 1)
 (sqrt 9)
+
+
+                                        ; Excercise 1.9
+;; 1. Recursive: expand for + and shrink for inc. Remember all the states
+;; 2. Iteratice: Only remember current state then apply for + since inc is procedure (its arg are evaluated immediately)
+
+
+                                        ; Excercise 1.10
+;; (A 1 10) -> 2 power 10 -> 1024
+;; (A 2 4) -> ?
+;; (A 3 3) -> ?
+;; (A 0 n) -> 2*n
+;; (A 1 n) -> 2^n
+;; (A 2 n) -> ?
+
