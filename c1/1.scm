@@ -25,7 +25,7 @@
 (define (abs x)
   (cond ((> x 0) x)
         ((= x 0) 0)
-        ((< x 0) -x)
+        ((< x 0) (- x))
         ))
 
 (define x 99)
@@ -123,3 +123,32 @@
 (define (test x y)
   (if (= x 0) 0 y))
 
+
+                                        ; Excercise 1.6
+;; The different is applicative-order vs normal-order ??
+
+
+                                        ; Excercise 1.7
+
+
+                                        ; Excercise 1.8
+
+(define (good-enough? guess p-guess)
+  (< (abs (/ (- guess p-guess) guess)) 0.00000000000001))
+
+(define (improve guess x)
+  (/ (+ (/ x (square guess)) (* 2 guess)) 3))
+
+(define (sqrt-iter guess x)
+  (if (good-enough? guess (improve guess x))
+      guess
+      (sqrt-iter (improve guess x) x)))
+
+(define (sqrt x)
+  (sqrt-iter 1.0 x))
+
+(abs -2)
+(square -1)
+(improve 2 3)
+(good-enough? -1.0001 1)
+(sqrt 9)
