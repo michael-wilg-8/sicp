@@ -167,3 +167,23 @@
 ;; (A 1 n) -> 2^n
 ;; (A 2 n) -> ?
 
+
+                                        ; Excercise 1.11
+;; RECURSIVE
+(define (f n)
+  (cond ((< n 3) n)
+        (else (+ (f (- n 1)) (* 2 (f (- n 2))) (* 3 (f (- n 3)))))))
+
+(f 4)
+
+;; ITERATIVE
+;; Variable to remember current state
+;; Stop point for n: 2
+
+(define (f-iter a sum cur n)
+  (if (= cur n)
+      (sum)
+      (else (f-iter ((+ a 1) )))
+
+(define (f n)
+  (f-iter 1 2 0 0))
